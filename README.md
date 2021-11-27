@@ -3,8 +3,5 @@
 ### Virtual env
 
 - the same as for [nft_predictor](https://github.com/meat-app-hack/nft-predictor)
-- in addition
+- pip install openai
 
-```python
-pip install openai
-'''
