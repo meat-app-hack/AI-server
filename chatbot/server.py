@@ -1,9 +1,11 @@
 from flask import Flask, request, Response
 from chatbot import ask, append_interaction_to_chat_log
 import jsonpickle
+import os
 
 app = Flask(__name__)
 
+port = os.environ.get('PORT', 2020)
 
 @app.route('/bot', methods=['POST'])
 def bot():
@@ -25,4 +27,4 @@ def bot():
 
 if __name__ == '__main__':
 
-    app.run(host='0.0.0.0', port=2020, debug=False, threaded=True)
+    app.run(host='0.0.0.0', port=port, debug=False, threaded=True)

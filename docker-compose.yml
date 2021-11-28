@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  chatbot:
+    build:
+      context: ./chatbot
+    environment:
+      PORT: 3000
+    secrets:
+      - api_key
+
+  predictor:
+    build:
+      context: ./nft-predictor
+    environment:
+      PORT: 3001
+    volumes:
+      - ./nft-predictor/data:/app/data
+
+  web: 
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/templates/default.conf.template
+    ports:
+      - "80:80"
+    environment:
+      NGINX_HOST: localhost
+      NGINX_PORT: 80
+      LIMIT_ZONE_NAME: limit
+      CONFIG: > 
+        
+
+        location /bot {
+          limit_req zone=limit;
+          proxy_pass http://chatbot:3000/bot;
+        }
+
+        location /predict {
+          limit_req zone=limit;
+          proxy_pass http://predictor:3001/predict;
+        }
+
+        
+    restart: always
+    depends_on:
+      - chatbot
+      - predictor
+
+secrets:
+  api_key:
+    file: ./api_key.txt
+

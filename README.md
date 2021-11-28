@@ -1,10 +1,13 @@
-## AI_chat_bot
+## AI server
 
-### Virtual env
+combines chat ai bot, which is simply uses interface of open ai service,
+and NFT predictor
 
-- the same as for [nft_predictor](https://github.com/meat-app-hack/nft-predictor) + next step
-- pip install openai
+### How to run
+Make sure you have docker and docker-compose installed
 
-### change it
-
-- input your private key [there](https://github.com/meat-app-hack/AI_chat_bot/blob/c07164dfa54b5cefcf16f2fa0084bb4fcfa1adc0/chatbot.py#L3)
+```
+echo "YOUR_API_KEY" > api_key.txt 
+docker-compose build
+docker-compose up
+```

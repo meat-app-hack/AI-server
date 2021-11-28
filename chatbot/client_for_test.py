@@ -2,7 +2,7 @@ from __future__ import print_function
 import requests
 import json
 
-test_url = 'http://127.0.0.1:2020/bot'
+test_url = 'http://127.0.0.1:80/bot'
 
 question = 'Who are you?'
 text_json = {'Body':question}

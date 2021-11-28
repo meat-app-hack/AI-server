@@ -1,0 +1,8 @@
+Flask==2.0.2
+jsonpickle==2.0.0
+Keras==2.3.1
+tensorflow==2.1.0
+urllib3==1.26.7
+Pillow
+h5py==2.10.0
+flask_cors==3.0.10
