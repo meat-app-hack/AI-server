@@ -31,12 +31,12 @@ services:
         
 
         location /bot {
-          limit_req zone=limit;
+          limit_req zone=limit burst=5 nodelay;
           proxy_pass http://chatbot:3000/bot;
         }
 
         location /predict {
-          limit_req zone=limit;
+          limit_req zone=limit burst=5 nodelay;
           proxy_pass http://predictor:3001/predict;
         }
 
