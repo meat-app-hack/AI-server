@@ -22,7 +22,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/templates/default.conf.template
     ports:
-      - "80:80"
+      - "2020:80"
     environment:
       NGINX_HOST: localhost
       NGINX_PORT: 80
