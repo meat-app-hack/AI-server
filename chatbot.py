@@ -1,6 +1,7 @@
 import openai
+import config 
 
-openai.api_key = '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'
+openai.api_key = config.api_key
 
 completion = openai.Completion()
 
